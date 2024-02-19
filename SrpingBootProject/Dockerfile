@@ -9,3 +9,5 @@ COPY target/SrpingBootProject-1.0-SNAPSHOT.jar app.jar
 
 # Specify the command to run on container start
 CMD ["java", "-jar", "app.jar"]
+
+EXPOSE 8080
