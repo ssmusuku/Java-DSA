@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class Controller {
 
-    private final ApplicationService applicationService;
+  private final ApplicationService applicationService;
 
-    public  Controller(ApplicationService applicationService){
-        this.applicationService = applicationService;
-    }
-    @GetMapping("/greet")
-    public String getMessage(){
+  public Controller(ApplicationService applicationService) {
+    this.applicationService = applicationService;
+  }
+
+  @GetMapping("/greet")
+  public String getMessage() {
     return applicationService.greet();
-}
+  }
 }
