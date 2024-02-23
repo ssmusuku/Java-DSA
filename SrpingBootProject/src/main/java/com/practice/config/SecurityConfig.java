@@ -30,10 +30,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
         .antMatchers("/api/greet")
-        .authenticated()
+        .permitAll() // Allow access without authentication for testing
         .antMatchers("/error")
-        .permitAll() // Permit access to the error endpoint
+        .permitAll()
         .and()
-        .httpBasic();
+        .httpBasic()
+        .and()
+        .csrf()
+        .disable(); // Disable CSRF for testing
   }
 }
