@@ -5,8 +5,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyService implements ApplicationService {
 
+  private final ExternalService externalService;
+
+  public MyService(ExternalService externalService) {
+    this.externalService = externalService;
+  }
+
   @Override
   public String greet() {
-    return "Hello";
+    String localGreeting = "Hello";
+    String externalInfo = externalService.getExternalInfo();
+    return localGreeting + " " + externalInfo;
   }
 }
